@@ -1,0 +1,30 @@
+plugins {
+    id "itom-java-plugin"
+    id "application"
+    id "itom-shadow-plugin"
+}
+
+tasks.named("wrapper") {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+allprojects {
+    group "com.github.asardaes"
+    version "0.0.0-SNAPSHOT"
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compileOnly libs.bundles.flink
+
+    testImplementation libs.bundles.flink
+    testImplementation "org.apache.flink:flink-clients_2.12:${libs.versions.flink.get()}"
+    testImplementation "org.apache.flink:flink-runtime:${libs.versions.flink.get()}:tests"
+}
+
+application {
+    mainClass = 'com.asardaes.flink.Main'
+}

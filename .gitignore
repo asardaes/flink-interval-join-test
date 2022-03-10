@@ -1,0 +1,43 @@
+## Directories
+.idea_modules/
+.settings/
+**/build/
+bin/
+out/
+tmp/
+venv/
+target/
+# go package files
+pkg/
+
+## Files
+*.bak
+*.hprof
+*.iws
+*.iml
+*.swp
+*.tmp
+.idea
+.gradle
+.loadpath
+.metadata
+.recommenders
+.target
+
+*~.nib
+local.properties
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+### Gradle template
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache

@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        libs {
+            version("flink", "1.14.3")
+
+            library("flink-java", "org.apache.flink", "flink-java").versionRef("flink")
+            library("flink-streaming-java", "org.apache.flink", "flink-streaming-java_2.12").versionRef("flink")
+            library("flink-table-common", "org.apache.flink", "flink-table-common").versionRef("flink")
+            library("flink-table-api", "org.apache.flink", "flink-table-api-java-bridge_2.12").versionRef("flink")
+
+            bundle("flink", [
+                    "flink-java",
+                    "flink-streaming-java",
+                    "flink-table-common",
+                    "flink-table-api",
+            ])
+        }
+    }
+}
+
+rootProject.name = 'flink-interval-join-test'
