@@ -35,8 +35,8 @@ public class CustomWatermarkGenerator<T> implements WatermarkGenerator<T>, Seria
         } else if (eventTimestamp > maxEventTime.toEpochMilli()) {
             maxEventTime = Instant.ofEpochMilli(eventTimestamp);
             forceAdvanceMultiplier = 1;
-        } else if (eventTimestamp == maxEventTime.toEpochMilli() && forceAdvanceMultiplier == 1L) {
-            // if we get another event with the exact same timestamp as maxEventTime, delay increasing forceAdvanceMultiplier
+        } else if (forceAdvanceMultiplier == 1L) {
+            // delay increasing forceAdvanceMultiplier if events are still coming in
             lastWatermarkTimeTruncated = Instant.now().truncatedTo(period);
         }
     }
