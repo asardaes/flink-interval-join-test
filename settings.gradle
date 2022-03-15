@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         libs {
-            version("flink", "1.14.3")
+            version("flink", "1.14.4")
 
             library("flink-java", "org.apache.flink", "flink-java").versionRef("flink")
             library("flink-streaming-java", "org.apache.flink", "flink-streaming-java_2.12").versionRef("flink")
